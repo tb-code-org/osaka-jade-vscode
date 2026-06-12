@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;background:#0c1512;}
+  svg{display:block;}
+</style>
+</head>
+<body>
+  <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="bg" cx="42%" cy="36%" r="80%">
+        <stop offset="0%" stop-color="#17261f"/>
+        <stop offset="60%" stop-color="#111c18"/>
+        <stop offset="100%" stop-color="#0c1512"/>
+      </radialGradient>
+      <linearGradient id="jade" x1="0" y1="0" x2="0.35" y2="1">
+        <stop offset="0%" stop-color="#4FE9CE"/>
+        <stop offset="45%" stop-color="#2DD5B7"/>
+        <stop offset="100%" stop-color="#179A82"/>
+      </linearGradient>
+      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#2DD5B7" stop-opacity="0.45"/>
+        <stop offset="55%" stop-color="#2DD5B7" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#2DD5B7" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="spec" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#F6F5DD" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#F6F5DD" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <rect width="512" height="512" fill="url(#bg)"/>
+    <circle cx="256" cy="256" r="205" fill="url(#glow)"/>
+
+    <!-- magatama (taijitu-half comma), head top, tail curling to bottom-center -->
+    <g transform="translate(250,256) rotate(-20) scale(1.16)">
+      <path d="M 0 -150
+               A 150 150 0 0 1 0 150
+               A 75 75 0 0 1 0 0
+               A 75 75 0 0 0 0 -150 Z"
+            fill="url(#jade)"
+            stroke="#E5C736" stroke-width="3.5" stroke-opacity="0.55"/>
+      <!-- drilled hole in the head -->
+      <circle cx="0" cy="-78" r="26" fill="#0e1714"/>
+      <circle cx="0" cy="-78" r="26" fill="none" stroke="#E5C736" stroke-width="3" stroke-opacity="0.7"/>
+      <!-- polished specular highlights -->
+      <ellipse cx="62" cy="-44" rx="42" ry="26" fill="url(#spec)" opacity="0.55" transform="rotate(28 62 -44)"/>
+      <ellipse cx="44" cy="64" rx="20" ry="40" fill="url(#spec)" opacity="0.18" transform="rotate(18 44 64)"/>
+    </g>
+  </svg>
+</body>
+</html>

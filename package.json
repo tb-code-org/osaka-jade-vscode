@@ -24,6 +24,7 @@
     "omarchy",
     "color-theme"
   ],
+  "icon": "icon.png",
   "galleryBanner": {
     "color": "#111c18",
     "theme": "dark"
