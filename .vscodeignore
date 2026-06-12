@@ -1,0 +1,9 @@
+.git/**
+.gitignore
+.vscode/**
+docs/**
+preview/**
+node_modules/**
+.playwright-mcp/**
+**/.DS_Store
+*.vsix

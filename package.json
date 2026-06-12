@@ -1,0 +1,40 @@
+{
+  "name": "osaka-jade",
+  "displayName": "Osaka Jade",
+  "description": "A dark jade theme for Cursor / VS Code — the Dark+ structure recolored with the Omarchy Osaka Jade palette.",
+  "version": "0.1.0",
+  "publisher": "tbcode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tb-code-org/cursor-osaka-jade.git"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "osaka",
+    "jade",
+    "dark",
+    "green",
+    "teal",
+    "omarchy",
+    "color-theme"
+  ],
+  "galleryBanner": {
+    "color": "#111c18",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Osaka Jade",
+        "uiTheme": "vs-dark",
+        "path": "./themes/osaka-jade-color-theme.json"
+      }
+    ]
+  }
+}
