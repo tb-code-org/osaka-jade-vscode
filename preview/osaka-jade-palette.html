@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Osaka Jade — palette</title>
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#0a110e;color:#C1C497;
+       font-family:-apple-system,system-ui,sans-serif;padding:40px 44px;}
+  h1{margin:0;font-size:26px;font-weight:700;color:#2DD5B7;letter-spacing:.01em;}
+  .sub{margin:6px 0 30px;color:#53685B;font-size:13px;}
+  h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7c8f84;
+     margin:30px 0 12px;font-weight:600;}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  .card{background:#0e1714;border:1px solid #1d2c25;border-radius:9px;overflow:hidden;}
+  .chip{height:62px;}
+  .meta{padding:8px 11px;}
+  .role{font-size:12.5px;color:#C1C497;}
+  .hex{font-size:11px;color:#53685B;font-family:ui-monospace,Menlo,monospace;margin-top:2px;
+       text-transform:uppercase;}
+  .ansi{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;}
+  .ansi .card .chip{height:42px;}
+  .ansi .meta{padding:6px 8px;}
+  .ansi .hex{font-size:10px;}
+</style>
+</head>
+<body>
+  <h1>Osaka Jade</h1>
+  <div class="sub">Dark jade theme for Cursor / VS Code — Dark+ structure, Omarchy Osaka Jade palette.</div>
+
+  <h2>Base</h2>
+  <div class="grid">
+    <div class="card"><div class="chip" style="background:#111c18"></div><div class="meta"><div class="role">Background</div><div class="hex">#111c18</div></div></div>
+    <div class="card"><div class="chip" style="background:#0e1714"></div><div class="meta"><div class="role">Panels</div><div class="hex">#0e1714</div></div></div>
+    <div class="card"><div class="chip" style="background:#C1C497"></div><div class="meta"><div class="role">Text</div><div class="hex">#C1C497</div></div></div>
+    <div class="card"><div class="chip" style="background:#53685B"></div><div class="meta"><div class="role">Comments</div><div class="hex">#53685B</div></div></div>
+    <div class="card"><div class="chip" style="background:#D7C995"></div><div class="meta"><div class="role">Cursor</div><div class="hex">#D7C995</div></div></div>
+  </div>
+
+  <h2>Syntax</h2>
+  <div class="grid">
+    <div class="card"><div class="chip" style="background:#D2689C"></div><div class="meta"><div class="role">Keywords</div><div class="hex">#D2689C</div></div></div>
+    <div class="card"><div class="chip" style="background:#509475"></div><div class="meta"><div class="role">Storage / this</div><div class="hex">#509475</div></div></div>
+    <div class="card"><div class="chip" style="background:#2DD5B7"></div><div class="meta"><div class="role">Types &amp; classes</div><div class="hex">#2DD5B7</div></div></div>
+    <div class="card"><div class="chip" style="background:#E5C736"></div><div class="meta"><div class="role">Functions</div><div class="hex">#E5C736</div></div></div>
+    <div class="card"><div class="chip" style="background:#8CD3CB"></div><div class="meta"><div class="role">Variables</div><div class="hex">#8CD3CB</div></div></div>
+    <div class="card"><div class="chip" style="background:#db9f9c"></div><div class="meta"><div class="role">Strings</div><div class="hex">#db9f9c</div></div></div>
+    <div class="card"><div class="chip" style="background:#9eebb3"></div><div class="meta"><div class="role">Numbers</div><div class="hex">#9eebb3</div></div></div>
+    <div class="card"><div class="chip" style="background:#FF5345"></div><div class="meta"><div class="role">Errors / regex</div><div class="hex">#FF5345</div></div></div>
+  </div>
+
+  <h2>Terminal — 16 ANSI colors (1:1 from alacritty.toml)</h2>
+  <div class="ansi">
+    <div class="card"><div class="chip" style="background:#23372B"></div><div class="meta"><div class="hex">#23372B</div></div></div>
+    <div class="card"><div class="chip" style="background:#FF5345"></div><div class="meta"><div class="hex">#FF5345</div></div></div>
+    <div class="card"><div class="chip" style="background:#549e6a"></div><div class="meta"><div class="hex">#549E6A</div></div></div>
+    <div class="card"><div class="chip" style="background:#459451"></div><div class="meta"><div class="hex">#459451</div></div></div>
+    <div class="card"><div class="chip" style="background:#509475"></div><div class="meta"><div class="hex">#509475</div></div></div>
+    <div class="card"><div class="chip" style="background:#D2689C"></div><div class="meta"><div class="hex">#D2689C</div></div></div>
+    <div class="card"><div class="chip" style="background:#2DD5B7"></div><div class="meta"><div class="hex">#2DD5B7</div></div></div>
+    <div class="card"><div class="chip" style="background:#F6F5DD"></div><div class="meta"><div class="hex">#F6F5DD</div></div></div>
+    <div class="card"><div class="chip" style="background:#53685B"></div><div class="meta"><div class="hex">#53685B</div></div></div>
+    <div class="card"><div class="chip" style="background:#db9f9c"></div><div class="meta"><div class="hex">#DB9F9C</div></div></div>
+    <div class="card"><div class="chip" style="background:#63b07a"></div><div class="meta"><div class="hex">#63B07A</div></div></div>
+    <div class="card"><div class="chip" style="background:#E5C736"></div><div class="meta"><div class="hex">#E5C736</div></div></div>
+    <div class="card"><div class="chip" style="background:#ACD4CF"></div><div class="meta"><div class="hex">#ACD4CF</div></div></div>
+    <div class="card"><div class="chip" style="background:#75bbb3"></div><div class="meta"><div class="hex">#75BBB3</div></div></div>
+    <div class="card"><div class="chip" style="background:#8CD3CB"></div><div class="meta"><div class="hex">#8CD3CB</div></div></div>
+    <div class="card"><div class="chip" style="background:#9eebb3"></div><div class="meta"><div class="hex">#9EEBB3</div></div></div>
+  </div>
+</body>
+</html>

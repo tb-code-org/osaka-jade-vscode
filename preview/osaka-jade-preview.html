@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Osaka Jade — náhled rozhraní</title>
+<style>
+  :root{
+    --bg:#111c18; --panel:#0e1714; --line:#16241f; --border:#1d2c25;
+    --fg:#C1C497; --muted:#7c8f84; --comment:#53685B; --white:#F6F5DD;
+    --pink:#D2689C; --teal:#509475; --jade:#2DD5B7; --gold:#E5C736;
+    --softjade:#8CD3CB; --rose:#db9f9c; --mint:#9eebb3; --red:#FF5345;
+    --cursor:#D7C995;
+    --t-green:#549e6a; --t-bblue:#ACD4CF; --t-bmag:#75bbb3; --t-bcyan:#8CD3CB;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#050907;font-family:-apple-system,system-ui,sans-serif;
+       display:flex;justify-content:center;padding:28px;}
+  .window{width:1040px;height:660px;background:var(--bg);border:1px solid var(--border);
+          border-radius:10px;overflow:hidden;display:flex;flex-direction:column;
+          box-shadow:0 20px 60px rgba(0,0,0,.6);font-size:13px;}
+  .titlebar{height:36px;background:var(--panel);border-bottom:1px solid var(--border);
+            display:flex;align-items:center;padding:0 12px;gap:8px;color:var(--muted);}
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .title{margin:0 auto;font-size:12px;color:var(--muted);}
+  .body{flex:1;display:flex;min-height:0;}
+  .activity{width:48px;background:var(--panel);border-right:1px solid var(--border);
+            display:flex;flex-direction:column;align-items:center;padding-top:10px;gap:18px;}
+  .ico{width:22px;height:22px;border-radius:5px;opacity:.45;}
+  .ico.active{opacity:1;box-shadow:inset 2px 0 0 var(--jade);border-radius:0 5px 5px 0;}
+  .sidebar{width:210px;background:var(--panel);border-right:1px solid var(--border);
+           color:var(--fg);padding:8px 0;}
+  .sb-head{color:var(--muted);font-size:11px;letter-spacing:.08em;padding:6px 14px;text-transform:uppercase;}
+  .sb-item{padding:3px 14px 3px 26px;color:var(--fg);}
+  .sb-item.sel{background:var(--line);color:var(--white);}
+  .sb-item.mod{color:var(--gold);}
+  .sb-item.add{color:var(--t-green);}
+  .main{flex:1;display:flex;flex-direction:column;min-width:0;}
+  .tabs{height:36px;background:var(--panel);border-bottom:1px solid var(--border);display:flex;}
+  .tab{padding:0 16px;display:flex;align-items:center;color:var(--muted);
+       border-right:1px solid var(--border);font-size:12.5px;}
+  .tab.active{background:var(--bg);color:var(--white);box-shadow:inset 0 2px 0 var(--jade);}
+  .breadcrumb{height:24px;display:flex;align-items:center;padding:0 16px;gap:6px;
+              color:var(--muted);font-size:11.5px;background:var(--bg);}
+  .breadcrumb .b{color:var(--jade);}
+  .editor{flex:1;background:var(--bg);display:flex;font-family:ui-monospace,"SF Mono",Menlo,monospace;
+          font-size:13px;line-height:1.65;overflow:hidden;}
+  .gutter{padding:10px 0;color:#3e4f46;text-align:right;user-select:none;}
+  .gutter div{padding:0 14px 0 16px;}
+  .gutter .cur{color:var(--softjade);}
+  pre.code{margin:0;padding:10px 0;flex:1;}
+  .code .ln{padding:0 16px;display:block;}
+  .code .ln.cur{background:var(--line);}
+  .cm{color:var(--comment);} .kw{color:var(--pink);} .st{color:var(--teal);}
+  .ty{color:var(--jade);} .fn{color:var(--gold);} .va{color:var(--softjade);}
+  .str{color:var(--rose);} .nu{color:var(--mint);} .op{color:var(--fg);}
+  .caret{display:inline-block;width:2px;height:15px;background:var(--cursor);
+         vertical-align:-3px;margin-left:1px;}
+  .terminal{height:150px;background:var(--panel);border-top:1px solid var(--border);
+            font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.6;
+            padding:8px 14px;color:var(--fg);}
+  .term-tabs{color:var(--muted);font-size:11px;margin-bottom:6px;}
+  .term-tabs b{color:var(--fg);border-bottom:1px solid var(--jade);padding-bottom:6px;}
+  .statusbar{height:24px;background:var(--panel);border-top:1px solid var(--border);
+             display:flex;align-items:center;padding:0 12px;gap:14px;color:var(--fg);font-size:11.5px;}
+  .statusbar .br{color:var(--jade);}
+  .swatches{display:flex;gap:0;margin-top:4px;}
+  .swatches span{flex:1;height:8px;}
+</style>
+</head>
+<body>
+  <div class="window">
+    <div class="titlebar">
+      <span class="dot" style="background:#FF5345"></span>
+      <span class="dot" style="background:#E5C736"></span>
+      <span class="dot" style="background:#2DD5B7"></span>
+      <span class="title">database.ts — osaka-jade — Cursor</span>
+    </div>
+    <div class="body">
+      <div class="activity">
+        <div class="ico active" style="background:#C1C497"></div>
+        <div class="ico" style="background:#C1C497"></div>
+        <div class="ico" style="background:#C1C497"></div>
+        <div class="ico" style="background:#C1C497"></div>
+      </div>
+      <div class="sidebar">
+        <div class="sb-head">Explorer</div>
+        <div class="sb-item">▾ src</div>
+        <div class="sb-item sel">&nbsp;&nbsp;database.ts</div>
+        <div class="sb-item mod">&nbsp;&nbsp;client.ts &nbsp;M</div>
+        <div class="sb-item add">&nbsp;&nbsp;types.ts &nbsp;U</div>
+        <div class="sb-item">&nbsp;&nbsp;index.ts</div>
+        <div class="sb-item">▾ tests</div>
+        <div class="sb-item">&nbsp;&nbsp;db.test.ts</div>
+        <div class="sb-item">README.md</div>
+        <div class="sb-item">package.json</div>
+      </div>
+      <div class="main">
+        <div class="tabs">
+          <div class="tab active">database.ts</div>
+          <div class="tab">client.ts</div>
+          <div class="tab">README.md</div>
+        </div>
+        <div class="breadcrumb">src <span>›</span> <span class="b">database.ts</span> <span>›</span> <span class="b">getUser</span></div>
+        <div class="editor">
+          <div class="gutter">
+            <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+            <div>6</div><div class="cur">7</div><div>8</div><div>9</div><div>10</div>
+            <div>11</div><div>12</div><div>13</div>
+          </div>
+          <pre class="code"><span class="ln"><span class="kw">import</span> { <span class="ty">Database</span>, <span class="ty">User</span> } <span class="kw">from</span> <span class="str">"./types"</span></span>
+<span class="ln"></span>
+<span class="ln"><span class="cm">// Load a user from the jade store by ID</span></span>
+<span class="ln"><span class="kw">export</span> <span class="kw">async</span> <span class="st">function</span> <span class="fn">getUser</span>(<span class="va">id</span><span class="op">:</span> <span class="st">number</span>)<span class="op">:</span> <span class="ty">Promise</span><span class="op">&lt;</span><span class="ty">User</span><span class="op">&gt;</span> {</span>
+<span class="ln">  <span class="st">const</span> <span class="va">client</span> <span class="op">=</span> <span class="kw">new</span> <span class="ty">Database</span>({ <span class="va">timeout</span><span class="op">:</span> <span class="nu">3000</span> })</span>
+<span class="ln">  <span class="st">const</span> <span class="va">rows</span> <span class="op">=</span> <span class="kw">await</span> <span class="va">client</span>.<span class="fn">query</span>(<span class="str">`SELECT * FROM users WHERE id = ${</span><span class="va">id</span><span class="str">}`</span>)</span>
+<span class="ln cur">  <span class="kw">if</span> (<span class="va">rows</span>.<span class="va">length</span> <span class="op">===</span> <span class="nu">0</span>) {<span class="caret"></span></span>
+<span class="ln">    <span class="kw">return</span> { <span class="va">name</span><span class="op">:</span> <span class="str">"anonymous"</span>, <span class="va">level</span><span class="op">:</span> <span class="nu">42</span>, <span class="va">active</span><span class="op">:</span> <span class="st">false</span> }</span>
+<span class="ln">  }</span>
+<span class="ln"></span>
+<span class="ln">  <span class="cm">// TODO: cache the result</span></span>
+<span class="ln">  <span class="kw">return</span> <span class="va">rows</span>[<span class="nu">0</span>]</span>
+<span class="ln">}</span></pre>
+        </div>
+        <div class="terminal">
+          <div class="term-tabs"><b>TERMINAL</b> &nbsp; PROBLEMS &nbsp; OUTPUT &nbsp; DEBUG CONSOLE</div>
+          <div><span style="color:#2DD5B7">➜</span> <span style="color:#509475">osaka-jade</span> <span style="color:#D2689C">git:(</span><span style="color:#E5C736">main</span><span style="color:#D2689C">)</span> npm test</div>
+          <div><span style="color:#549e6a">PASS</span> tests/db.test.ts <span style="color:#53685B">(1.2s)</span></div>
+          <div><span style="color:#FF5345">FAIL</span> <span style="color:#db9f9c">expected</span> 3 <span style="color:#53685B">to equal</span> <span style="color:#9eebb3">42</span></div>
+          <div class="swatches">
+            <span style="background:#23372B"></span><span style="background:#FF5345"></span>
+            <span style="background:#549e6a"></span><span style="background:#459451"></span>
+            <span style="background:#509475"></span><span style="background:#D2689C"></span>
+            <span style="background:#2DD5B7"></span><span style="background:#F6F5DD"></span>
+            <span style="background:#53685B"></span><span style="background:#db9f9c"></span>
+            <span style="background:#63b07a"></span><span style="background:#E5C736"></span>
+            <span style="background:#ACD4CF"></span><span style="background:#75bbb3"></span>
+            <span style="background:#8CD3CB"></span><span style="background:#9eebb3"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="statusbar">
+      <span class="br">⎇ main</span>
+      <span style="color:#FF5345">✖ 1</span>
+      <span style="color:#E5C736">⚠ 0</span>
+      <span style="margin-left:auto">TypeScript</span>
+      <span>UTF-8</span>
+      <span>Ln 7, Col 18</span>
+    </div>
+  </div>
+</body>
+</html>
