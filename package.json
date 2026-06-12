@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tb-code-org/cursor-osaka-jade.git"
+    "url": "https://github.com/tb-code-org/osaka-jade-vscode.git"
   },
   "engines": {
     "vscode": "^1.70.0"
